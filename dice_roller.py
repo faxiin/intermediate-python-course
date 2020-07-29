@@ -1,11 +1,24 @@
+import random
 
-def main():
-dice_rolls = 2
-dice_sum = 0
-for i in range(0, dice_rolls):
-  roll = random.randint(1, 6)
-  dice_sum += roll
-print(f'You have rolled a total of {dice_sum}')
+# fixed errors (indentation and function name)
 
-if __name__== "__main__":
-  main()
+
+def dice_sum(die_size, rolls):
+    results = 0
+    dice_sum = 0
+    for i in range(0, rolls):
+        results = random.randint(1, die_size)
+        print("Die %d rolled %d." % (i+1, results))
+        dice_sum += results
+    print("Total of %d dice rolls is: %d" % (rolls, dice_sum))
+    # return the result of your calculation instead of `None`
+    return dice_sum
+
+
+# get user input (you might think about catching errors)
+die_size = int(input('What is the size of your die? [enter a #]'))
+rolls = int(input('How many would you like to roll? [enter a #]'))
+
+# pass input values to function and print result
+result = dice_sum(die_size=die_size, rolls=rolls)
+print(result)
